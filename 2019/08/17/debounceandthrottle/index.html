@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="####防抖函数（debounce）概念：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。场景：  文本输入的验证（连续输入文字后发送 AJAX 请求进行验证，验证一次就好） 每次 resize/scroll 触发统计事件1234567891011121314151617181920function debounce(fn, wait) &amp;#123;  var timer = n">
+<meta name="description" content="防抖函数（debounce）概念：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。 场景：  适合多次事件一次响应的情况 文本输入的验证（连续输入文字后发送 AJAX 请求进行验证，验证一次就好） 每次 resize/scroll 触发统计事件  1234567891011121314151617181920function debounce(fn, wait) &amp;#123;">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="节流函数和防抖函数">
 <meta property="og:url" content="http://yoursite.com/2019/08/17/debounceandthrottle/index.html">
 <meta property="og:site_name" content="蘇鹿丶">
-<meta property="og:description" content="####防抖函数（debounce）概念：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。场景：  文本输入的验证（连续输入文字后发送 AJAX 请求进行验证，验证一次就好） 每次 resize/scroll 触发统计事件1234567891011121314151617181920function debounce(fn, wait) &amp;#123;  var timer = n">
+<meta property="og:description" content="防抖函数（debounce）概念：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。 场景：  适合多次事件一次响应的情况 文本输入的验证（连续输入文字后发送 AJAX 请求进行验证，验证一次就好） 每次 resize/scroll 触发统计事件  1234567891011121314151617181920function debounce(fn, wait) &amp;#123;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-17T08:30:31.569Z">
+<meta property="og:updated_time" content="2019-08-17T08:40:03.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="节流函数和防抖函数">
-<meta name="twitter:description" content="####防抖函数（debounce）概念：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。场景：  文本输入的验证（连续输入文字后发送 AJAX 请求进行验证，验证一次就好） 每次 resize/scroll 触发统计事件1234567891011121314151617181920function debounce(fn, wait) &amp;#123;  var timer = n">
+<meta name="twitter:description" content="防抖函数（debounce）概念：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。 场景：  适合多次事件一次响应的情况 文本输入的验证（连续输入文字后发送 AJAX 请求进行验证，验证一次就好） 每次 resize/scroll 触发统计事件  1234567891011121314151617181920function debounce(fn, wait) &amp;#123;">
 
 
 
@@ -340,14 +340,16 @@
       
 
       
-        <p>####防抖函数（debounce）<br>概念：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。<br>场景：</p>
+        <h4 id="防抖函数（debounce）"><a href="#防抖函数（debounce）" class="headerlink" title="防抖函数（debounce）"></a>防抖函数（debounce）</h4><p>概念：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。</p>
+<p>场景：</p>
 <ol>
+<li>适合多次事件一次响应的情况</li>
 <li>文本输入的验证（连续输入文字后发送 AJAX 请求进行验证，验证一次就好）</li>
-<li>每次 resize/scroll 触发统计事件<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, wait</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> context = <span class="keyword">this</span></span><br><span class="line">      <span class="keyword">var</span> args = <span class="built_in">arguments</span></span><br><span class="line">      <span class="keyword">if</span> (timer) &#123;</span><br><span class="line">          clearTimeout(timer);</span><br><span class="line">          timer = <span class="literal">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          fn.apply(context, args)</span><br><span class="line">      &#125;, wait)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'debounce'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setInterval(debounce(fn,<span class="number">500</span>),<span class="number">1000</span>) <span class="comment">// 第一次在1500ms后触发，之后每1000ms触发一次</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>每次 resize/scroll 触发统计事件</li>
 </ol>
-<p>####节流函数（throttle）<br>概念：规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, wait</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> context = <span class="keyword">this</span></span><br><span class="line">      <span class="keyword">var</span> args = <span class="built_in">arguments</span></span><br><span class="line">      <span class="keyword">if</span> (timer) &#123;</span><br><span class="line">          clearTimeout(timer);</span><br><span class="line">          timer = <span class="literal">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      timer = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          fn.apply(context, args)</span><br><span class="line">      &#125;, wait)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'debounce'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setInterval(debounce(fn,<span class="number">500</span>),<span class="number">1000</span>) <span class="comment">// 第一次在1500ms后触发，之后每1000ms触发一次</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="节流函数（throttle）"><a href="#节流函数（throttle）" class="headerlink" title="节流函数（throttle）"></a>节流函数（throttle）</h4><p>概念：规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效。</p>
 <p>场景：</p>
 <ol>
 <li>适合大量事件按时间做平均分配。</li>
@@ -444,8 +446,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/user.jpg" alt="su lu">
           <p class="site-author-name" itemprop="name">su lu</p>
@@ -496,6 +507,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#防抖函数（debounce）"><span class="nav-number">1.</span> <span class="nav-text">防抖函数（debounce）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节流函数（throttle）"><span class="nav-number">2.</span> <span class="nav-text">节流函数（throttle）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
