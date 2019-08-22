@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="CSS3,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="css新特性过渡 语法：transition： CSS属性，花费时间，效果曲线(默认ease)，延迟时间(默认0)语法2： transition-property: width;transition-duration: 1s; transition-timing-function: linear; transition-delay: 2s; 举例1：transition：width,.5s,eas">
+<meta name="keywords" content="CSS3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3新特性">
+<meta property="og:url" content="http://yoursite.com/2019/08/22/css3-new-speciality/index.html">
+<meta property="og:site_name" content="蘇鹿丶">
+<meta property="og:description" content="css新特性过渡 语法：transition： CSS属性，花费时间，效果曲线(默认ease)，延迟时间(默认0)语法2： transition-property: width;transition-duration: 1s; transition-timing-function: linear; transition-delay: 2s; 举例1：transition：width,.5s,eas">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-22T11:23:34.037Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3新特性">
+<meta name="twitter:description" content="css新特性过渡 语法：transition： CSS属性，花费时间，效果曲线(默认ease)，延迟时间(默认0)语法2： transition-property: width;transition-duration: 1s; transition-timing-function: linear; transition-delay: 2s; 举例1：transition：width,.5s,eas">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/22/css3-new-speciality/">
+
+
+
+
+
+  <title>CSS3新特性 | 蘇鹿丶</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">蘇鹿丶</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">既然心之所想，不妨起身飞翔。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/22/css3-new-speciality/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="su lu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/user.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蘇鹿丶">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS3新特性</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-22T19:16:44+08:00">
+                2019-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="css新特性"><a href="#css新特性" class="headerlink" title="css新特性"></a>css新特性</h4><h2 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h2><ol>
+<li>语法：transition： CSS属性，花费时间，效果曲线(默认ease)，延迟时间(默认0)<br>语法2： transition-property: width;<pre><code>transition-duration: 1s;
+transition-timing-function: linear;
+transition-delay: 2s;</code></pre></li>
+<li>举例1：transition：width,.5s,ease,.2s //宽度从原始值到制定值的一个过渡，运动曲线ease,运动时间0.5秒，0.2秒后执行过渡</li>
+<li>举例2：transition：all,.5s //所有属性从原始值到制定值的一个过渡，运动曲线ease,运动时间0.5秒</li>
+</ol>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><ol>
+<li>语法1：animation：动画名称，一个周期花费时间，运动曲线（默认ease），动画延迟（默认0），播放次数（默认1），是否反向播放动画（默认normal），是否暂停           动画（默认running）</li>
+<li>举例：animation: logo2-line 2s linear;//执行一次logo2-line动画，运动时间2秒，运动曲线为 linear;<pre><code>animation: logo2-line 2s linear 2s;//2秒后开始执行一次logo2-line动画，运动时间2秒，运动曲线为 linea;
+animation: logo2-line 2s linear alternate infinite;//无限执行logo2-line动画，每次运动时间2秒，运动曲线为 linear，并且执行反向动画</code></pre></li>
+<li>ps: animation-fill-mode : none | forwards | backwards | both;//none：不改变默认行为。    <pre><code>forwards ：当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。    
+backwards：在 animation-delay 所指定的一段时间内，在动画显示之前，应用开始属性值（在第一个关键帧中定义）。 
+both：向前和向后填充模式都被应用。 </code></pre></li>
+</ol>
+<h2 id="loading效果"><a href="#loading效果" class="headerlink" title="loading效果"></a>loading效果</h2><ol>
+<li><a href="http://www.html5tricks.com/demo/css3-loading-cool-styles/index.html" target="_blank" rel="noopener">http://www.html5tricks.com/demo/css3-loading-cool-styles/index.html</a></li>
+</ol>
+<h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><ol>
+<li>语法：box-shadow: 水平阴影的位置 垂直阴影的位置 模糊距离 阴影的大小 阴影的颜色 阴影开始方向（默认是从里往外，设置inset就是从外往里）;</li>
+</ol>
+<h2 id="边框图片"><a href="#边框图片" class="headerlink" title="边框图片"></a>边框图片</h2><ol>
+<li>语法：border-image: 图片url 图像边界向内偏移 图像边界的宽度(默认为边框的宽度) 用于指定在边框外部绘制偏移的量（默认0） 铺满方式–重复（repeat）、拉          伸（stretch）或铺满（round）（默认：拉伸（stretch））;</li>
+</ol>
+<h2 id="倒影"><a href="#倒影" class="headerlink" title="倒影"></a>倒影</h2><ol>
+<li><p>语法：-webkit-box-reflect:方向[ above-上 | below-下 | right-右 | left-左 ]，偏移量，遮罩图片</p>
+</li>
+<li><p>举例:    </p><p>下倒影</p><p></p>
+<pre><code>&lt;p class=&quot;reflect-bottom-p&quot;&gt;&lt;img src=&quot;test.jpg&quot; class=&quot;reflect-bottom&quot;&gt;&lt;/p&gt;
+&lt;style&gt;
+.reflect-bottom-p {
+       padding-bottom: 300px;
+   }
+
+.reflect-bottom {
+       -webkit-box-reflect: below;
+   }   
+&lt;/style&gt;</code></pre></li>
+</ol>
+<h2 id="文字阴影"><a href="#文字阴影" class="headerlink" title="文字阴影"></a>文字阴影</h2><ol>
+<li>语法：text-shadow: 0 0 10px #f00;</li>
+</ol>
+<h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><ol>
+<li><a href="https://www.w3cplus.com/content/css3-gradient" target="_blank" rel="noopener">https://www.w3cplus.com/content/css3-gradient</a> //CSS3 Gradient</li>
+<li><a href="https://www.w3cplus.com/css3/new-css3-radial-gradient.html" target="_blank" rel="noopener">https://www.w3cplus.com/css3/new-css3-radial-gradient.html</a> //再说CSS3渐变——线性渐变</li>
+<li><a href="https://www.w3cplus.com/css3/new-css3-linear-gradient.html" target="_blank" rel="noopener">https://www.w3cplus.com/css3/new-css3-linear-gradient.html</a> //再说CSS3渐变——径向渐变</li>
+<li><a href="http://www.cnblogs.com/coco1s/p/7079529.html" target="_blank" rel="noopener">http://www.cnblogs.com/coco1s/p/7079529.html</a> //神奇的 conic-gradient 圆锥渐变</li>
+</ol>
+<h2 id="Filter（滤镜）"><a href="#Filter（滤镜）" class="headerlink" title="Filter（滤镜）"></a>Filter（滤镜）</h2><ol>
+<li>参考网站 <a href="http://www.runoob.com/cssref/css3-pr-filter.html" target="_blank" rel="noopener">http://www.runoob.com/cssref/css3-pr-filter.html</a> </li>
+</ol>
+<h2 id="盒模型定义"><a href="#盒模型定义" class="headerlink" title="盒模型定义"></a>盒模型定义</h2><ol>
+<li><p>为什么是盒模型？</p>
+<ul>
+<li>网页由一个个盒子组成的原因是：每个HTML元素在页面上加载的时候，都是一个盒子。只是默认情况下，盒子的边框隐藏、背景透明，所以我们只看到了盒子里面的内容。也就是说，一个盒子就是一个元素，一个元素就是一个盒子。</li>
+</ul>
+</li>
+<li><p>盒子有哪些属性？</p>
+<ul>
+<li><p>边框：相当于生活中的纸盒子；它有样式border-style（虚线、实线等）、颜色border-color、粗细border-width、阴影border-dashed</p>
+</li>
+<li><p>内边距：内容与边框之间的距离（内容就是生活中你装在盒子里的东西，如衣服），有上下左右边距之分</p>
+</li>
+<li><p>外边距：盒子与盒子之间的距离（想像一下，两箱子衣服放在地板上），有上下左右之分。上下边距会相互叠加</p>
+</li>
+<li><p>背景层：background属性。想像一下盒子是透明的，是有图案的。</p>
+</li>
+</ul>
+</li>
+<li><p>盒子的大小？</p>
+<ul>
+<li><p>不设置盒子的width属性：block元素的内容会填充满父元素。增加了边距后，内容宽度被挤压</p>
+</li>
+<li><p>设置了width属性：width只代表了内容的宽度，添加的边距会在width的基础上叠加，使得盒子的大小扩展</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>好在，css3增加的box-sizing属性，统一了这两种情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">box-sizing:border-box;</span><br><span class="line">-moz-box-sizing:border-box; /* Firefox前缀 */</span><br><span class="line">-webkit-box-sizing:border-box; /* Safari 前缀*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><ol>
+<li>简单说媒体查询，就在监听屏幕尺寸的变化，在不同尺寸的时候显示不同的样式</li>
+<li>语法：@media mediatype and|not|only (media feature) {<pre><code>    CSS-Code;
+}</code></pre></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS3/" rel="tag"># CSS3</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/21/optimization/" rel="next" title="前端优化方案">
+                <i class="fa fa-chevron-left"></i> 前端优化方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/user.jpg" alt="su lu">
+          <p class="site-author-name" itemprop="name">su lu</p>
+           
+              <p class="site-description motion-element" itemprop="description">你配不上自己的野心，也辜负了所受的苦难。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#css新特性"><span class="nav-number">1.</span> <span class="nav-text">css新特性</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#过渡"><span class="nav-number"></span> <span class="nav-text">过渡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画"><span class="nav-number"></span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loading效果"><span class="nav-number"></span> <span class="nav-text">loading效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阴影"><span class="nav-number"></span> <span class="nav-text">阴影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边框图片"><span class="nav-number"></span> <span class="nav-text">边框图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#倒影"><span class="nav-number"></span> <span class="nav-text">倒影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字阴影"><span class="nav-number"></span> <span class="nav-text">文字阴影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渐变"><span class="nav-number"></span> <span class="nav-text">渐变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Filter（滤镜）"><span class="nav-number"></span> <span class="nav-text">Filter（滤镜）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型定义"><span class="nav-number"></span> <span class="nav-text">盒模型定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询"><span class="nav-number"></span> <span class="nav-text">媒体查询</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">su lu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
