@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Angular,">
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Angular 生命周期钩子在实际工作中肯定会遇到在不同时期需要做的不同的操作，在此记录Angular的生命周期钩子函数。 当angular在新建指令或者组件后会按照下列顺序时间进行调用。    生命周期钩子 用途及时机    ngOnChanges（） 当 Angular（重新）设置数据绑定输入属性时响应。 该方法接受当前和上一属性值的 SimpleChanges对象在 ngOnInit() 之">
-<meta name="keywords" content="Angular">
+<meta name="description" content="属性访问器12345678910111213141516171819202122232425&amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;model&amp;quot; /&amp;gt;&amp;lt;p id=&amp;quot;word&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;let dataBindObj = &amp;#123;&amp;#125;;let inputDom = document.ge">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular - 生命周期钩子">
-<meta property="og:url" content="http://yoursite.com/2019/08/13/angular-lifecycle/index.html">
+<meta property="og:title" content="手动实现一个双向绑定">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/proxy/index.html">
 <meta property="og:site_name" content="蘇鹿丶">
-<meta property="og:description" content="Angular 生命周期钩子在实际工作中肯定会遇到在不同时期需要做的不同的操作，在此记录Angular的生命周期钩子函数。 当angular在新建指令或者组件后会按照下列顺序时间进行调用。    生命周期钩子 用途及时机    ngOnChanges（） 当 Angular（重新）设置数据绑定输入属性时响应。 该方法接受当前和上一属性值的 SimpleChanges对象在 ngOnInit() 之">
+<meta property="og:description" content="属性访问器12345678910111213141516171819202122232425&amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;model&amp;quot; /&amp;gt;&amp;lt;p id=&amp;quot;word&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;let dataBindObj = &amp;#123;&amp;#125;;let inputDom = document.ge">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-19T12:19:31.196Z">
+<meta property="og:updated_time" content="2019-08-26T11:38:25.574Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Angular - 生命周期钩子">
-<meta name="twitter:description" content="Angular 生命周期钩子在实际工作中肯定会遇到在不同时期需要做的不同的操作，在此记录Angular的生命周期钩子函数。 当angular在新建指令或者组件后会按照下列顺序时间进行调用。    生命周期钩子 用途及时机    ngOnChanges（） 当 Angular（重新）设置数据绑定输入属性时响应。 该方法接受当前和上一属性值的 SimpleChanges对象在 ngOnInit() 之">
+<meta name="twitter:title" content="手动实现一个双向绑定">
+<meta name="twitter:description" content="属性访问器12345678910111213141516171819202122232425&amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;model&amp;quot; /&amp;gt;&amp;lt;p id=&amp;quot;word&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;let dataBindObj = &amp;#123;&amp;#125;;let inputDom = document.ge">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/13/angular-lifecycle/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/26/proxy/">
 
 
 
 
 
-  <title>Angular - 生命周期钩子 | 蘇鹿丶</title>
+  <title>手动实现一个双向绑定 | 蘇鹿丶</title>
   
 
 
@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/angular-lifecycle/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/proxy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="su lu">
@@ -300,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Angular - 生命周期钩子</h1>
+          <h1 class="post-title" itemprop="name headline">手动实现一个双向绑定</h1>
         
 
         <div class="post-meta">
@@ -312,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T11:10:49+08:00">
-                2019-08-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-26T19:29:56+08:00">
+                2019-08-26
               </time>
             
 
@@ -350,50 +350,9 @@
       
 
       
-        <h4 id="Angular-生命周期钩子"><a href="#Angular-生命周期钩子" class="headerlink" title="Angular 生命周期钩子"></a>Angular 生命周期钩子</h4><p>在实际工作中肯定会遇到在不同时期需要做的不同的操作，在此记录Angular的生命周期钩子函数。</p>
-<p>当angular在新建指令或者组件后会按照下列顺序时间进行调用。</p>
-<table>
-<thead>
-<tr>
-<th>生命周期钩子</th>
-<th>用途及时机</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ngOnChanges（）</td>
-<td>当 Angular（重新）设置数据绑定输入属性时响应。 该方法接受当前和上一属性值的 SimpleChanges<br>对象在 ngOnInit() 之前以及所绑定的一个或多个输入属性的值发生变化时都会调用。</td>
-</tr>
-<tr>
-<td>ngOnInit()</td>
-<td>在 Angular 第一次显示数据绑定和设置指令/组件的输入属性之后，初始化指令/组件。<br>在第一轮 ngOnChanges() 完成之后调用，只调用一次。</td>
-</tr>
-<tr>
-<td>ngDoCheck()</td>
-<td>检测，并在发生 Angular 无法或不愿意自己检测的变化时作出反应。<br>在每个变更检测周期中，紧跟在 ngOnChanges() 和 ngOnInit() 后面调用。</td>
-</tr>
-<tr>
-<td>ngAfterContentInit()</td>
-<td>当 Angular 把外部内容投影进组件/指令的视图之后调用。<br>第一次 ngDoCheck() 之后调用，只调用一次。</td>
-</tr>
-<tr>
-<td>ngAfterContentChecked()</td>
-<td>每当 Angular 完成被投影组件内容的变更检测之后调用。<br>ngAfterContentInit() 和每次 ngDoCheck() 之后调用</td>
-</tr>
-<tr>
-<td>ngAfterViewInit()</td>
-<td>当 Angular 初始化完组件视图及其子视图之后调用。<br>第一次 ngAfterContentChecked() 之后调用，只调用一次。</td>
-</tr>
-<tr>
-<td>ngAfterViewChecked()</td>
-<td>每当 Angular 做完组件视图和子视图的变更检测之后调用。<br>ngAfterViewInit() 和每次 ngAfterContentChecked() 之后调用。</td>
-</tr>
-<tr>
-<td>ngOnDestroy()</td>
-<td>每当 Angular 每次销毁指令/组件之前调用并清扫。 在这儿反订阅可观察对象和分离事件处理器，以防内存泄漏。<br>在 Angular 销毁指令/组件之前调用。</td>
-</tr>
-</tbody></table>
-<p>文章内容来自于<a href="https://angular.cn/guide/lifecycle-hooks#lifecycle-hooks" title="Angular" target="_blank" rel="noopener">Angular</a>官网 生命周期钩子函数</p>
+        <h4 id="属性访问器"><a href="#属性访问器" class="headerlink" title="属性访问器"></a>属性访问器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; id=&quot;model&quot; /&gt;</span><br><span class="line">&lt;p id=&quot;word&quot;&gt;&lt;/p&gt;</span><br><span class="line">let dataBindObj = &#123;&#125;;</span><br><span class="line">let inputDom = document.getElementById(&apos;model&apos;);</span><br><span class="line">let outDom = document.getElementById(&apos;word&apos;);</span><br><span class="line">Object.defineProperty(dataBindObj, &apos;txt&apos;, &#123;</span><br><span class="line">    get: () =&gt; &#123;</span><br><span class="line">        return dataBindObj;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: newValue =&gt; &#123;</span><br><span class="line">        outDom.innerHTML = newValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">inputDom.addEventListener(&apos;keyup&apos;, e =&gt; &#123;</span><br><span class="line">    dataBindObj.txt = e.target.value;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// Object.defineProperty()语法说明</span><br><span class="line">// Object.defineProperty()的作用就是直接在一个对象上定义一个新属性，或者修改一个/已经存在的属性</span><br><span class="line">// Object.defineProperty(obj, prop, desc)</span><br><span class="line">// obj 需要定义属性的当前对象</span><br><span class="line">// prop 当前需要定义的属性名</span><br><span class="line">// desc 属性描述符</span><br><span class="line">// 一般通过为对象的属性赋值的情况下，对象的属性可以修改也可以删除，但是通过Object.defineProperty()定义属性，通过描述符的设置可以进行更精准的控制对象属性</span><br></pre></td></tr></table></figure>
 
+<h4 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const model = document.getElementById(&apos;model&apos;);</span><br><span class="line">const word = document.getElementById(&apos;word&apos;);</span><br><span class="line">var dataBindObj = &#123;&#125;;</span><br><span class="line">const newObj = new Proxy(dataBindObj, &#123;</span><br><span class="line">  get: function(target, key, receiver) &#123;</span><br><span class="line">    console.log(`getting $&#123;key&#125;!`);</span><br><span class="line">    return Reflect.get(target, key, receiver);</span><br><span class="line">  &#125;,</span><br><span class="line">  set: function(target, key, value, receiver) &#123;</span><br><span class="line">    console.log(&apos;setting&apos;, target, key, value, receiver);</span><br><span class="line">    if (key === &apos;text&apos;) &#123;</span><br><span class="line">      model.value = value;</span><br><span class="line">      word.innerHTML = value;</span><br><span class="line">    &#125;</span><br><span class="line">    return Reflect.set(target, key, value, receiver);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">model.addEventListener(&apos;keyup&apos;, function(e) &#123;</span><br><span class="line">  newObj.text = e.target.value;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -410,7 +369,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Angular/" rel="tag"># Angular</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -423,8 +382,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/13/html-post-messaging/" rel="next" title="HTML 跨源通信">
-                <i class="fa fa-chevron-left"></i> HTML 跨源通信
+              <a href="/2019/08/22/css3-new-speciality/" rel="next" title="CSS3新特性">
+                <i class="fa fa-chevron-left"></i> CSS3新特性
               </a>
             
           </div>
@@ -432,10 +391,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/17/debounceandthrottle/" rel="prev" title="节流函数和防抖函数">
-                节流函数和防抖函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -558,7 +513,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Angular-生命周期钩子"><span class="nav-number">1.</span> <span class="nav-text">Angular 生命周期钩子</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性访问器"><span class="nav-number">1.</span> <span class="nav-text">属性访问器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#proxy"><span class="nav-number">2.</span> <span class="nav-text">proxy</span></a></li></ol></div>
             
 
           </div>
