@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为： (牌底) 1,2,3,4,5,6,7,8,9,10,11,12,13 (牌顶)；问：原来那堆牌的顺序，用函数实现。12345678910111213function reverse(arr) &amp;#123;  let i = 1;  let out = [];  while (arr.lengt">
+<meta name="description" content="有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为： (牌底) 1,2,3,4,5,6,7,8,9,10,11,12,13 (牌顶)；问：原来那堆牌的顺序，用函数实现。">
 <meta name="keywords" content="面试题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日一道面试题：扑克牌">
 <meta property="og:url" content="http://yoursite.com/2019/08/27/poker/index.html">
 <meta property="og:site_name" content="蘇鹿丶">
-<meta property="og:description" content="有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为： (牌底) 1,2,3,4,5,6,7,8,9,10,11,12,13 (牌顶)；问：原来那堆牌的顺序，用函数实现。12345678910111213function reverse(arr) &amp;#123;  let i = 1;  let out = [];  while (arr.lengt">
+<meta property="og:description" content="有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为： (牌底) 1,2,3,4,5,6,7,8,9,10,11,12,13 (牌顶)；问：原来那堆牌的顺序，用函数实现。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T11:29:13.125Z">
+<meta property="og:updated_time" content="2019-08-31T03:55:48.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日一道面试题：扑克牌">
-<meta name="twitter:description" content="有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为： (牌底) 1,2,3,4,5,6,7,8,9,10,11,12,13 (牌顶)；问：原来那堆牌的顺序，用函数实现。12345678910111213function reverse(arr) &amp;#123;  let i = 1;  let out = [];  while (arr.lengt">
+<meta name="twitter:description" content="有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为： (牌底) 1,2,3,4,5,6,7,8,9,10,11,12,13 (牌顶)；问：原来那堆牌的顺序，用函数实现。">
 
 
 
@@ -350,7 +350,8 @@
       
 
       
-        <h4 id="有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为：-牌底-1-2-3-4-5-6-7-8-9-10-11-12-13-牌顶-；问：原来那堆牌的顺序，用函数实现。"><a href="#有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为：-牌底-1-2-3-4-5-6-7-8-9-10-11-12-13-牌顶-；问：原来那堆牌的顺序，用函数实现。" class="headerlink" title="有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为： (牌底) 1,2,3,4,5,6,7,8,9,10,11,12,13 (牌顶)；问：原来那堆牌的顺序，用函数实现。"></a>有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为： (牌底) 1,2,3,4,5,6,7,8,9,10,11,12,13 (牌顶)；问：原来那堆牌的顺序，用函数实现。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function reverse(arr) &#123;</span><br><span class="line">  let i = 1;</span><br><span class="line">  let out = [];</span><br><span class="line">  while (arr.length) &#123;</span><br><span class="line">    if (i % 2) &#123;</span><br><span class="line">      out.unshift(arr.pop());</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      out.unshift(out.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    i++;</span><br><span class="line">  &#125;</span><br><span class="line">  return out.reverse();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4 id="有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为：-牌底-1-2-3-4-5-6-7-8-9-10-11-12-13-牌顶-；问：原来那堆牌的顺序，用函数实现。"><a href="#有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为：-牌底-1-2-3-4-5-6-7-8-9-10-11-12-13-牌顶-；问：原来那堆牌的顺序，用函数实现。" class="headerlink" title="有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为： (牌底) 1,2,3,4,5,6,7,8,9,10,11,12,13 (牌顶)；问：原来那堆牌的顺序，用函数实现。"></a>有一堆扑克牌，将牌堆第一张放到桌子上，再将接下来的牌堆的第一张放到牌底，如此往复；最后桌子上的牌顺序为： (牌底) 1,2,3,4,5,6,7,8,9,10,11,12,13 (牌顶)；问：原来那堆牌的顺序，用函数实现。</h4><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function reverse(arr) &#123;</span><br><span class="line">  let i = 1;</span><br><span class="line">  let out = [];</span><br><span class="line">  while (arr.length) &#123;</span><br><span class="line">    if (i % 2) &#123;</span><br><span class="line">      out.unshift(arr.pop());</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      out.unshift(out.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    i++;</span><br><span class="line">  &#125;</span><br><span class="line">  return out.reverse();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
