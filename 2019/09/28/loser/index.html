@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Javascript,">
+  <meta name="keywords" content="随笔,">
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="异步 even loop 任务队列1. js区分为同步任务和异步任务   2. 同步任务都在主线程上执行 形成执行栈  3. 主线程之外 事件触发线程 管理着一个任务队列 只要异步有了运行结果 就在任务队列里面放置一个事件  4. 一但执行栈中的所有同步任务执行完毕（js引擎空闲）系统就会读取任务队列将可执行的异步任务添加到执行战中开始执行  5. 根据规范，事件循环是通过任务队列的机制来进行协调">
-<meta name="keywords" content="Javascript">
+<meta name="description" content="回顾总结自己这一周的内容，拟定下一周的计划。补充自己的不足，更新自己的进度条。  python 复习了python基本的内容 完善了自己的记账项目的前端基本内容  复习了日语初级下册32课-40课 晚上锻炼夜跑了20公里  基本上这一周按照计划进行，偶尔想偷个懒，一看时间这么紧迫 想想还是算了，总是想努力为了什么，想来想去自己还是想去过自己想过的生活。 很清楚 前途 并不属于那些犹豫不决的人 而是">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="async-even-loop">
-<meta property="og:url" content="http://yoursite.com/2019/09/15/async-even-loop/index.html">
+<meta property="og:title" content="回顾2019&#x2F;9&#x2F;23 - 2019&#x2F;9&#x2F;27">
+<meta property="og:url" content="http://yoursite.com/2019/09/28/loser/index.html">
 <meta property="og:site_name" content="蘇鹿丶">
-<meta property="og:description" content="异步 even loop 任务队列1. js区分为同步任务和异步任务   2. 同步任务都在主线程上执行 形成执行栈  3. 主线程之外 事件触发线程 管理着一个任务队列 只要异步有了运行结果 就在任务队列里面放置一个事件  4. 一但执行栈中的所有同步任务执行完毕（js引擎空闲）系统就会读取任务队列将可执行的异步任务添加到执行战中开始执行  5. 根据规范，事件循环是通过任务队列的机制来进行协调">
+<meta property="og:description" content="回顾总结自己这一周的内容，拟定下一周的计划。补充自己的不足，更新自己的进度条。  python 复习了python基本的内容 完善了自己的记账项目的前端基本内容  复习了日语初级下册32课-40课 晚上锻炼夜跑了20公里  基本上这一周按照计划进行，偶尔想偷个懒，一看时间这么紧迫 想想还是算了，总是想努力为了什么，想来想去自己还是想去过自己想过的生活。 很清楚 前途 并不属于那些犹豫不决的人 而是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-15T03:22:10.984Z">
+<meta property="og:updated_time" content="2019-09-28T08:14:23.426Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="async-even-loop">
-<meta name="twitter:description" content="异步 even loop 任务队列1. js区分为同步任务和异步任务   2. 同步任务都在主线程上执行 形成执行栈  3. 主线程之外 事件触发线程 管理着一个任务队列 只要异步有了运行结果 就在任务队列里面放置一个事件  4. 一但执行栈中的所有同步任务执行完毕（js引擎空闲）系统就会读取任务队列将可执行的异步任务添加到执行战中开始执行  5. 根据规范，事件循环是通过任务队列的机制来进行协调">
+<meta name="twitter:title" content="回顾2019&#x2F;9&#x2F;23 - 2019&#x2F;9&#x2F;27">
+<meta name="twitter:description" content="回顾总结自己这一周的内容，拟定下一周的计划。补充自己的不足，更新自己的进度条。  python 复习了python基本的内容 完善了自己的记账项目的前端基本内容  复习了日语初级下册32课-40课 晚上锻炼夜跑了20公里  基本上这一周按照计划进行，偶尔想偷个懒，一看时间这么紧迫 想想还是算了，总是想努力为了什么，想来想去自己还是想去过自己想过的生活。 很清楚 前途 并不属于那些犹豫不决的人 而是">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/15/async-even-loop/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/28/loser/">
 
 
 
 
 
-  <title>async-even-loop | 蘇鹿丶</title>
+  <title>回顾2019/9/23 - 2019/9/27 | 蘇鹿丶</title>
   
 
 
@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/async-even-loop/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/loser/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="su lu">
@@ -300,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">async-even-loop</h1>
+          <h1 class="post-title" itemprop="name headline">回顾2019/9/23 - 2019/9/27</h1>
         
 
         <div class="post-meta">
@@ -312,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T11:16:15+08:00">
-                2019-09-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T15:58:25+08:00">
+                2019-09-28
               </time>
             
 
@@ -350,19 +350,16 @@
       
 
       
-        <h5 id="异步-even-loop-任务队列"><a href="#异步-even-loop-任务队列" class="headerlink" title="异步 even loop 任务队列"></a>异步 even loop 任务队列</h5><pre><code>1. js区分为同步任务和异步任务 
-
-2. 同步任务都在主线程上执行 形成执行栈
-
-3. 主线程之外 事件触发线程 管理着一个任务队列 只要异步有了运行结果 就在任务队列里面放置一个事件
-
-4. 一但执行栈中的所有同步任务执行完毕（js引擎空闲）系统就会读取任务队列将可执行的异步任务添加到执行战中开始执行
-
-5. 根据规范，事件循环是通过任务队列的机制来进行协调，一个 even loop 中可以有一个或者多个任务队列（task queue）
-
-6. 一个任务队列便是一系列有序的任务的集合，每个任务都有一个任务源（task source），源自同一个人无缘的task必须放在同一个任务队列里面
-
-7. 从不同源来的则被添加到不同队列。 setTimeout/Promise 等API便是任务源，而进入任务队列的是他们指定的具体执行任务。</code></pre>
+        <p>回顾总结自己这一周的内容，拟定下一周的计划。补充自己的不足，更新自己的进度条。</p>
+<ol>
+<li>python 复习了python基本的内容</li>
+<li>完善了自己的记账项目的前端基本内容 </li>
+<li>复习了日语初级下册32课-40课</li>
+<li>晚上锻炼夜跑了20公里</li>
+</ol>
+<p>基本上这一周按照计划进行，偶尔想偷个懒，一看时间这么紧迫 想想还是算了，总是想努力为了什么，想来想去自己还是想去过自己想过的生活。</p>
+<h2 id="很清楚-前途-并不属于那些犹豫不决的人-而是属于那些一旦决定之后就不屈不挠不达目的誓不罢休的人-–-罗曼罗兰"><a href="#很清楚-前途-并不属于那些犹豫不决的人-而是属于那些一旦决定之后就不屈不挠不达目的誓不罢休的人-–-罗曼罗兰" class="headerlink" title="很清楚 前途 并不属于那些犹豫不决的人 而是属于那些一旦决定之后就不屈不挠不达目的誓不罢休的人 – 罗曼罗兰"></a>很清楚 前途 并不属于那些犹豫不决的人 而是属于那些一旦决定之后就不屈不挠不达目的誓不罢休的人 – 罗曼罗兰</h2><p>生活总是很苦，<br>慢慢的，<br>磨去了我们的耐心。<br>在一遍一遍的被生活击败之后，<br>认清它的本质，<br>找到自己的方向，<br>继续前行。</p>
+<h2 id="距离12月1号等级考试-还有-64-天"><a href="#距离12月1号等级考试-还有-64-天" class="headerlink" title="距离12月1号等级考试 还有 64 天"></a>距离12月1号等级考试 还有 64 天</h2>
       
     </div>
     
@@ -379,7 +376,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
+            <a href="/tags/随笔/" rel="tag"># 随笔</a>
           
         </div>
       
@@ -392,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/14/angular-animation/" rel="next" title="angular路由过度动画">
-                <i class="fa fa-chevron-left"></i> angular路由过度动画
+              <a href="/2019/09/28/python-craps-game/" rel="next" title="python 骰子比大小">
+                <i class="fa fa-chevron-left"></i> python 骰子比大小
               </a>
             
           </div>
@@ -401,10 +398,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/21/angular-ngif-template-error/" rel="prev" title="ViewChild in *ngIf">
-                ViewChild in *ngIf <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -527,7 +520,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#异步-even-loop-任务队列"><span class="nav-number">1.</span> <span class="nav-text">异步 even loop 任务队列</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#很清楚-前途-并不属于那些犹豫不决的人-而是属于那些一旦决定之后就不屈不挠不达目的誓不罢休的人-–-罗曼罗兰"><span class="nav-number">1.</span> <span class="nav-text">很清楚 前途 并不属于那些犹豫不决的人 而是属于那些一旦决定之后就不屈不挠不达目的誓不罢休的人 – 罗曼罗兰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#距离12月1号等级考试-还有-64-天"><span class="nav-number">2.</span> <span class="nav-text">距离12月1号等级考试 还有 64 天</span></a></li></ol></div>
             
 
           </div>
