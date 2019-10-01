@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="python,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="使用python 制作一个简单的cmd 小游戏 2048">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python-2048">
+<meta property="og:url" content="http://yoursite.com/2019/10/01/python-2048/index.html">
+<meta property="og:site_name" content="蘇鹿丶">
+<meta property="og:description" content="使用python 制作一个简单的cmd 小游戏 2048">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-01T05:24:03.030Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python-2048">
+<meta name="twitter:description" content="使用python 制作一个简单的cmd 小游戏 2048">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/01/python-2048/">
+
+
+
+
+
+  <title>python-2048 | 蘇鹿丶</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0ff2a93c70a4f6c51df3e5e509317840";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">蘇鹿丶</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">既然心之所想，不妨起身飞翔。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/01/python-2048/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="su lu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/user.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蘇鹿丶">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python-2048</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-01T13:21:54+08:00">
+                2019-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="使用python-制作一个简单的cmd-小游戏-2048"><a href="#使用python-制作一个简单的cmd-小游戏-2048" class="headerlink" title="使用python 制作一个简单的cmd 小游戏 2048"></a>使用python 制作一个简单的cmd 小游戏 2048</h4><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br></pre></td><td class="code"><pre><span class="line">import enum</span><br><span class="line">import random</span><br><span class="line">import keyboard</span><br><span class="line">import sys</span><br><span class="line">from typing import Tuple, List</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Tile():</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class TilePower(int, Tile):</span><br><span class="line">    &quot;&quot;&quot;1 to 11&quot;&quot;&quot;</span><br><span class="line">    MIN_POWER = 1</span><br><span class="line">    MAX_POWER = 11</span><br><span class="line"></span><br><span class="line">    def __new__(cls, x):</span><br><span class="line">        if not cls.MIN_POWER &lt;= x &lt;= cls.MAX_POWER:</span><br><span class="line">            raise Exception(</span><br><span class="line">                f&quot;Needs to be &#123;cls.MIN_POWER&#125; &lt;= x &lt;= &#123;cls.MAX_POWER&#125; but is &#123;x&#125;&quot;)</span><br><span class="line">        return int.__new__(cls, x)</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        return str(2**self)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class _BlankTile(str, Tile):</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">BLANK_TILE = _BlankTile()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Board(tuple):</span><br><span class="line"></span><br><span class="line">    HEIGHT = WIDTH = 4</span><br><span class="line"></span><br><span class="line">    def __new__(cls, x: Tuple[Tuple[Tile]]):</span><br><span class="line">        &quot;&quot;&quot;TODO: make not require tuple grid&quot;&quot;&quot;</span><br><span class="line">        if len(x) != cls.HEIGHT:</span><br><span class="line">            raise Exception(</span><br><span class="line">                f&quot;Height needs to be &#123;cls.HEIGHT&#125; but is &#123;len(x)&#125;.&quot;)</span><br><span class="line">        for row in x:</span><br><span class="line">            if len(row) != cls.WIDTH:</span><br><span class="line">                raise Exception(</span><br><span class="line">                    f&quot;Width needs to be &#123;cls.WIDTH&#125; but is &#123;len(row)&#125;.&quot;)</span><br><span class="line">        return super().__new__(cls, x)</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        rows = (&quot; | &quot;.join(str(x) for x in row) for row in self)</span><br><span class="line">        return &quot;\n&quot;.join(rows)</span><br><span class="line"></span><br><span class="line">    def __ne__(self, other):</span><br><span class="line">        return not self.__eq__(other)</span><br><span class="line"></span><br><span class="line">    def __eq__(self, other):</span><br><span class="line">        &quot;&quot;&quot;True if value of each tile is the same&quot;&quot;&quot;</span><br><span class="line">        def is_tile_eq(x, y):</span><br><span class="line">            if x == BLANK_TILE and y == BLANK_TILE:</span><br><span class="line">                return True</span><br><span class="line">            if x != BLANK_TILE and y != BLANK_TILE:</span><br><span class="line">                return x == y</span><br><span class="line">            return False</span><br><span class="line">        self_tiles = [x for row in self for x in row]</span><br><span class="line">        other_tiles = [x for row in other for x in row]</span><br><span class="line">        return all(x == y for x, y in zip(self_tiles, other_tiles))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Transformation():</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class SpawnTransform(Transformation):</span><br><span class="line">    CHANCE_OF_4_SPAWN = 0.2</span><br><span class="line"></span><br><span class="line">    def __get_blank_locations(self, board: Board) -&gt; List[Tuple[int]]:</span><br><span class="line">        return [(j, i) for j, row in enumerate(board)</span><br><span class="line">                for i, tile in enumerate(row)</span><br><span class="line">                if tile == BLANK_TILE]</span><br><span class="line"></span><br><span class="line">    def __get_new_tile(self):</span><br><span class="line">        if random.random() &lt; self.CHANCE_OF_4_SPAWN:</span><br><span class="line">            return TilePower(2)</span><br><span class="line">        return TilePower(1)</span><br><span class="line"></span><br><span class="line">    def transform(self, board: Board) -&gt; Board:</span><br><span class="line">        spawn_j, spawn_i = random.choice(self.__get_blank_locations(board))</span><br><span class="line">        tmp_board = list(list(row) for row in board)</span><br><span class="line">        tmp_board[spawn_j][spawn_i] = self.__get_new_tile()</span><br><span class="line"></span><br><span class="line">        return Board(tmp_board)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class LeftTransform(Transformation):</span><br><span class="line">    &quot;&quot;&quot;User presses left button&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    def transform(self, board: Board) -&gt; Board:</span><br><span class="line">        def transform_row(row):</span><br><span class="line">            nonblank_tiles = [x for x in row if x != BLANK_TILE]</span><br><span class="line">            i, new_row = 0, []</span><br><span class="line">            while i &lt; len(nonblank_tiles):</span><br><span class="line">                curr_tile = nonblank_tiles[i]</span><br><span class="line">                to_merge = i != len(nonblank_tiles) - \</span><br><span class="line">                    1 and curr_tile == nonblank_tiles[i+1]</span><br><span class="line">                if to_merge:</span><br><span class="line">                    new_row.append(TilePower(curr_tile + 1))</span><br><span class="line">                    i += 2</span><br><span class="line">                else:</span><br><span class="line">                    new_row.append(curr_tile)</span><br><span class="line">                    i += 1</span><br><span class="line">            new_row += [BLANK_TILE] * (len(row) - len(new_row))</span><br><span class="line">            return new_row</span><br><span class="line">        return Board([transform_row(row) for row in board])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def flipLeftRight(board: Board) -&gt; Board:</span><br><span class="line">    return Board([row[::-1] for row in board])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def transpose(board: Board) -&gt; Board:</span><br><span class="line">    return Board(list(zip(*[row for row in board])))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class RightTransform(Transformation):</span><br><span class="line">    &quot;&quot;&quot;User presses right button&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    def transform(self, board: Board) -&gt; Board:</span><br><span class="line">        board = flipLeftRight(board)</span><br><span class="line">        board = LeftTransform().transform(board)</span><br><span class="line">        board = flipLeftRight(board)</span><br><span class="line"></span><br><span class="line">        return board</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class UpTransform(Transformation):</span><br><span class="line">    &quot;&quot;&quot;User presses up button&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    def transform(self, board: Board) -&gt; Board:</span><br><span class="line">        board = transpose(board)</span><br><span class="line">        board = LeftTransform().transform(board)</span><br><span class="line">        board = transpose(board)</span><br><span class="line"></span><br><span class="line">        return board</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class DownTransform(Transformation):</span><br><span class="line">    &quot;&quot;&quot;User presses down button&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    def transform(self, board: Board) -&gt; Board:</span><br><span class="line">        board = flipLeftRight(transpose(board))</span><br><span class="line">        board = LeftTransform().transform(board)</span><br><span class="line">        board = transpose(flipLeftRight(board))</span><br><span class="line"></span><br><span class="line">        return board</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Direction(enum.Enum):</span><br><span class="line">    UP = enum.auto()</span><br><span class="line">    DOWN = enum.auto()</span><br><span class="line">    LEFT = enum.auto()</span><br><span class="line">    RIGHT = enum.auto()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Game():</span><br><span class="line">    def __init__(self,</span><br><span class="line">                 initialState,</span><br><span class="line">                 spawnTransform=SpawnTransform(),</span><br><span class="line">                 leftTransform=LeftTransform(),</span><br><span class="line">                 rightTransform=RightTransform(),</span><br><span class="line">                 upTransform=UpTransform(),</span><br><span class="line">                 downTransform=DownTransform(),</span><br><span class="line">                 ):</span><br><span class="line">        self._board = initialState</span><br><span class="line">        self._spawnTransform = spawnTransform</span><br><span class="line">        self._upTransform = upTransform</span><br><span class="line">        self._downTransform = downTransform</span><br><span class="line">        self._leftTransform = leftTransform</span><br><span class="line">        self._rightTransform = rightTransform</span><br><span class="line"></span><br><span class="line">    def get_curr_state(self) -&gt; Board:</span><br><span class="line">        return self._board</span><br><span class="line"></span><br><span class="line">    def has_succeeded(self) -&gt; bool:</span><br><span class="line">        return any(x == TilePower(TilePower.MAX_POWER)</span><br><span class="line">                   for row in self._board</span><br><span class="line">                   for x in row)</span><br><span class="line"></span><br><span class="line">    def has_failed(self) -&gt; bool:</span><br><span class="line">        return not any(x == BLANK_TILE</span><br><span class="line">                       for row in self._board</span><br><span class="line">                       for x in row)</span><br><span class="line"></span><br><span class="line">    def has_ended(self) -&gt; bool:</span><br><span class="line">        return self.has_succeeded() or self.has_failed()</span><br><span class="line"></span><br><span class="line">    def swipe(self, direction: Direction) -&gt; None:</span><br><span class="line">        if self.has_ended():</span><br><span class="line">            raise Exception(&quot;Game has already ended&quot;)</span><br><span class="line">        transforms = &#123;</span><br><span class="line">            Direction.UP: self._upTransform,</span><br><span class="line">            Direction.DOWN: self._downTransform,</span><br><span class="line">            Direction.LEFT: self._leftTransform,</span><br><span class="line">            Direction.RIGHT: self._rightTransform,</span><br><span class="line">        &#125;</span><br><span class="line">        next_board = transforms[direction].transform(self._board)</span><br><span class="line">        if next_board != self._board:</span><br><span class="line">            self._board = self._spawnTransform.transform(next_board)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def generate_random_board() -&gt; Board:</span><br><span class="line">    def generate_random_tile() -&gt; Tile:</span><br><span class="line">        if random.random() &lt; 0.5:</span><br><span class="line">            return BLANK_TILE</span><br><span class="line">        return TilePower(random.randint(TilePower.MIN_POWER, TilePower.MAX_POWER))</span><br><span class="line">    return Board(tuple(tuple(generate_random_tile() for _ in range(Board.WIDTH))</span><br><span class="line">                       for _ in range(Board.HEIGHT)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def display(board: Board) -&gt; None:</span><br><span class="line">    rows = (&quot; | &quot;.join(</span><br><span class="line">        [&quot;&quot;] + [f&quot;&#123;str(x):&gt;4&#125;&quot; for x in row] + [&quot;&quot;]) for row in board)</span><br><span class="line">    ruler = &quot; &quot; + &quot;-&quot; * 29 + &quot; &quot;</span><br><span class="line">    print(ruler)</span><br><span class="line">    for row in rows:</span><br><span class="line">        print(row)</span><br><span class="line">    print(ruler)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def run_game():</span><br><span class="line">    EMPTY_BOARD = Board([[BLANK_TILE] * Board.HEIGHT] * Board.WIDTH)</span><br><span class="line">    initial_state = SpawnTransform().transform(EMPTY_BOARD)</span><br><span class="line">    game = Game(initial_state)</span><br><span class="line"></span><br><span class="line">    def on_arrow_keypress(event):</span><br><span class="line">        directions = &#123;</span><br><span class="line">            &quot;up&quot;: Direction.UP,</span><br><span class="line">            &quot;down&quot;: Direction.DOWN,</span><br><span class="line">            &quot;left&quot;: Direction.LEFT,</span><br><span class="line">            &quot;right&quot;: Direction.RIGHT,</span><br><span class="line">        &#125;</span><br><span class="line">        if event.name not in directions:</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        game.swipe(directions[event.name])</span><br><span class="line">        print()</span><br><span class="line">        print()</span><br><span class="line">        display(game.get_curr_state())</span><br><span class="line"></span><br><span class="line">        if game.has_ended():</span><br><span class="line">            print(&quot;Game has ended!&quot;)</span><br><span class="line">            if game.has_succeeded():</span><br><span class="line">                print(&quot;You won!&quot;)</span><br><span class="line">            if game.has_failed:</span><br><span class="line">                print(&quot;You lost! Try again next time!&quot;)</span><br><span class="line">            sys.exit()</span><br><span class="line"></span><br><span class="line">    keyboard.on_press(on_arrow_keypress)</span><br><span class="line">    display(game.get_curr_state())</span><br><span class="line">    while True:</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    run_game()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/28/loser/" rel="next" title="回顾2019/9/23 - 2019/9/27">
+                <i class="fa fa-chevron-left"></i> 回顾2019/9/23 - 2019/9/27
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/user.jpg" alt="su lu">
+          <p class="site-author-name" itemprop="name">su lu</p>
+           
+              <p class="site-description motion-element" itemprop="description">你配不上自己的野心，也辜负了所受的苦难。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用python-制作一个简单的cmd-小游戏-2048"><span class="nav-number">1.</span> <span class="nav-text">使用python 制作一个简单的cmd 小游戏 2048</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">su lu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
