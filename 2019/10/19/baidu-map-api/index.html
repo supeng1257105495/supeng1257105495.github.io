@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="面试题,">
+  <meta name="keywords" content="JavaScrpt,">
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="给定两个数组，写一个方法来计算两个数组的交集">
-<meta name="keywords" content="面试题">
+<meta name="description" content="百度地图的基础应用最近开发遇到了需要使用百度地图的地方 记录下基本的操作  登陆百度开发者平台 申请账号 申请地图应用获取到 秘钥  百度地图生成器 生成基础地图 在此上进行二次开发  创建坐标点  1map.centerAndZoom(new BMap.Point(121.48054, 31.235929), 12);  绘制覆盖物 123456function addMapOverlay(pr">
+<meta name="keywords" content="JavaScrpt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每日一道面试题：给定两个数组，写一个方法来计算它们的交集。">
-<meta property="og:url" content="http://yoursite.com/2019/08/28/intersection/index.html">
+<meta property="og:title" content="baidu-map-api">
+<meta property="og:url" content="http://yoursite.com/2019/10/19/baidu-map-api/index.html">
 <meta property="og:site_name" content="蘇鹿丶">
-<meta property="og:description" content="给定两个数组，写一个方法来计算两个数组的交集">
+<meta property="og:description" content="百度地图的基础应用最近开发遇到了需要使用百度地图的地方 记录下基本的操作  登陆百度开发者平台 申请账号 申请地图应用获取到 秘钥  百度地图生成器 生成基础地图 在此上进行二次开发  创建坐标点  1map.centerAndZoom(new BMap.Point(121.48054, 31.235929), 12);  绘制覆盖物 123456function addMapOverlay(pr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-31T03:55:24.603Z">
+<meta property="og:updated_time" content="2019-10-19T02:06:52.838Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="每日一道面试题：给定两个数组，写一个方法来计算它们的交集。">
-<meta name="twitter:description" content="给定两个数组，写一个方法来计算两个数组的交集">
+<meta name="twitter:title" content="baidu-map-api">
+<meta name="twitter:description" content="百度地图的基础应用最近开发遇到了需要使用百度地图的地方 记录下基本的操作  登陆百度开发者平台 申请账号 申请地图应用获取到 秘钥  百度地图生成器 生成基础地图 在此上进行二次开发  创建坐标点  1map.centerAndZoom(new BMap.Point(121.48054, 31.235929), 12);  绘制覆盖物 123456function addMapOverlay(pr">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/28/intersection/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/19/baidu-map-api/">
 
 
 
 
 
-  <title>每日一道面试题：给定两个数组，写一个方法来计算它们的交集。 | 蘇鹿丶</title>
+  <title>baidu-map-api | 蘇鹿丶</title>
   
 
 
@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/intersection/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/19/baidu-map-api/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="su lu">
@@ -300,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">每日一道面试题：给定两个数组，写一个方法来计算它们的交集。</h1>
+          <h1 class="post-title" itemprop="name headline">baidu-map-api</h1>
         
 
         <div class="post-meta">
@@ -312,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-28T19:16:36+08:00">
-                2019-08-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-19T09:52:39+08:00">
+                2019-10-19
               </time>
             
 
@@ -350,8 +350,27 @@
       
 
       
-        <h4 id="给定两个数组，写一个方法来计算两个数组的交集"><a href="#给定两个数组，写一个方法来计算两个数组的交集" class="headerlink" title="给定两个数组，写一个方法来计算两个数组的交集"></a>给定两个数组，写一个方法来计算两个数组的交集</h4><a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const intersect = (nums1, nums2) =&gt; &#123;</span><br><span class="line">        const map = &#123;&#125;;</span><br><span class="line">        const res = [];</span><br><span class="line">        for (let n of nums1) &#123;</span><br><span class="line">          if (map[n]) &#123;</span><br><span class="line">            map[n]++;</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            map[n] = 1;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (let n of nums2) &#123;</span><br><span class="line">          if (map[n] &gt; 0) &#123;</span><br><span class="line">            res.push(n);</span><br><span class="line">            map[n]--;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
+        <h4 id="百度地图的基础应用"><a href="#百度地图的基础应用" class="headerlink" title="百度地图的基础应用"></a>百度地图的基础应用</h4><p>最近开发遇到了需要使用百度地图的地方 记录下基本的操作</p>
+<ol>
+<li><p>登陆<a href="http://lbsyun.baidu.com/products/products/map" title="百度开发者平台" target="_blank" rel="noopener">百度开发者平台</a> 申请账号 申请地图应用获取到 秘钥</p>
+</li>
+<li><p><a href="http://api.map.baidu.com/lbsapi/creatmap/" title="百度地图生成器" target="_blank" rel="noopener">百度地图生成器</a> 生成基础地图 在此上进行二次开发</p>
+</li>
+<li><p>创建坐标点 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.centerAndZoom(new BMap.Point(121.48054, 31.235929), 12);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绘制覆盖物</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function addMapOverlay(print, text) &#123;</span><br><span class="line">     var label = new BMap.Label(text, &#123; offset: new BMap.Size(20, -10) &#125;);</span><br><span class="line">     var mk = new BMap.Marker(print);</span><br><span class="line">     mk.setLabel(label);</span><br><span class="line">     map.addOverlay(mk);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>依据坐标点绘制 圆圈 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">circle = new BMap.Circle(r.point, 100, &#123;</span><br><span class="line">  fillColor: &apos;blue&apos;,</span><br><span class="line">  strokeWeight: 1,</span><br><span class="line">  fillOpacity: 0.3,</span><br><span class="line">  strokeOpacity: 0.3,</span><br><span class="line">  enableEditing: true</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查覆盖物是否在半径之内</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> //引入 第三方库进行处理</span><br><span class="line"> &lt;script type=&quot;text/javascript&quot; src=&quot;http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">function isCircle(point, circle) &#123;</span><br><span class="line">   //检查类型是否正确</span><br><span class="line">   if (!(point instanceof BMap.Point) || !(circle instanceof BMap.Circle)) &#123;</span><br><span class="line">     return false;</span><br><span class="line">   &#125;</span><br><span class="line">   //point与圆心距离小于圆形半径，则点在圆内，否则在圆外</span><br><span class="line">   var c = circle.getCenter();</span><br><span class="line">   var r = circle.getRadius();</span><br><span class="line">   console.log(point);</span><br><span class="line">   console.log(c);</span><br><span class="line">   var dis = BMapLib.GeoUtils.getDistance(point, c);</span><br><span class="line">   if (dis &lt;= r) &#123;</span><br><span class="line">     return true;</span><br><span class="line">   &#125; else &#123;</span><br><span class="line">     return false;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="基本的地图就制作完毕了-Demo地址"><a href="#基本的地图就制作完毕了-Demo地址" class="headerlink" title="基本的地图就制作完毕了 Demo地址"></a>基本的地图就制作完毕了 <a href="https://github.com/supeng1257105495/Baidu-Map/blob/master/map.html" target="_blank" rel="noopener">Demo地址</a></h4>
       
     </div>
     
@@ -368,7 +387,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/面试题/" rel="tag"># 面试题</a>
+            <a href="/tags/JavaScrpt/" rel="tag"># JavaScrpt</a>
           
         </div>
       
@@ -381,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/27/poker/" rel="next" title="每日一道面试题：扑克牌">
-                <i class="fa fa-chevron-left"></i> 每日一道面试题：扑克牌
+              <a href="/2019/10/13/angular-RouteReuseStrategy/" rel="next" title="Angular-路由复用">
+                <i class="fa fa-chevron-left"></i> Angular-路由复用
               </a>
             
           </div>
@@ -390,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/29/class/" rel="prev" title="每日一道面试题：实现一个 Dialog 类，Dialog可以创建 dialog 对话框，对话框支持可拖拽?">
-                每日一道面试题：实现一个 Dialog 类，Dialog可以创建 dialog 对话框，对话框支持可拖拽? <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -516,7 +531,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#给定两个数组，写一个方法来计算两个数组的交集"><span class="nav-number">1.</span> <span class="nav-text">给定两个数组，写一个方法来计算两个数组的交集</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#百度地图的基础应用"><span class="nav-number">1.</span> <span class="nav-text">百度地图的基础应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本的地图就制作完毕了-Demo地址"><span class="nav-number">2.</span> <span class="nav-text">基本的地图就制作完毕了 Demo地址</span></a></li></ol></div>
             
 
           </div>
